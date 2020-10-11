@@ -1,19 +1,30 @@
 package at.cgsit.training.firstexample.services;
 
 import at.cgsit.training.firstexample.chat.model.ChatMessage;
+import at.cgsit.training.firstexample.dto.ChatMessageDTO;
 import at.cgsit.training.firstexample.repository.ChatMessageRepository;
+import at.cgsit.training.firstexample.translator.ChatMessageDTOToChatMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class ChatMessageServiceImpl implements ChatMessageService {
+
+  Logger logger = LoggerFactory.getLogger(ChatMessageServiceImpl.class);
 
   private ChatMessageRepository chatMessageRepository;
 
+  private ChatMessageDTOToChatMessage chatMessageDTOToChatMessage;
+
   @Autowired
-  public ChatMessageServiceImpl(ChatMessageRepository chatMessageRepository) {
+  public ChatMessageServiceImpl(ChatMessageRepository chatMessageRepository, ChatMessageDTOToChatMessage chatMessageDTOToChatMessage) {
     this.chatMessageRepository = chatMessageRepository;
+    this.chatMessageDTOToChatMessage = chatMessageDTOToChatMessage;
   }
 
 
@@ -41,13 +52,14 @@ public class ChatMessageServiceImpl implements ChatMessageService {
 
   }
 
-  /*
   @Override
-  public ChatMessage saveOrUpdateProductForm(ProductForm productForm) {
-    Product savedProduct = saveOrUpdate(productFormToProduct.convert(productForm));
+  public ChatMessage saveOrUpdateChatMessageDTO(ChatMessageDTO cmDTO){
+    ChatMessage savedProduct = saveOrUpdate(chatMessageDTOToChatMessage.convert(cmDTO));
 
-    System.out.println("Saved Product Id: " + savedProduct.getId());
+    logger.info("Saved Chat Message Id: {}", savedProduct.getId());
     return savedProduct;
   }
-   */
+
+
+
 }

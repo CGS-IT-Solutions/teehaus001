@@ -1,15 +1,12 @@
-package at.cgsit.training.firstexample.chat.model;
+package at.cgsit.training.firstexample.dto;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
-public class ChatMessage {
+public class ChatMessageDTO {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   private MessageType type;
@@ -25,24 +22,21 @@ public class ChatMessage {
     PRIVATE,
     JOIN,
     LEAVE;
-
-  }
-
-  public void setId(Long id) {
-    this.id = id;
   }
 
   public Long getId() {
     return id;
   }
 
-
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public MessageType getType() {
     return type;
   }
 
-  public ChatMessage setType(MessageType type) {
+  public ChatMessageDTO setType(MessageType type) {
     this.type = type;
     return this;
   }
@@ -51,7 +45,7 @@ public class ChatMessage {
     return content;
   }
 
-  public ChatMessage setContent(String content) {
+  public ChatMessageDTO setContent(String content) {
     this.content = content;
     return this;
   }
@@ -60,7 +54,7 @@ public class ChatMessage {
     return sender;
   }
 
-  public ChatMessage setSender(String sender) {
+  public ChatMessageDTO setSender(String sender) {
     this.sender = sender;
     return this;
   }
@@ -69,7 +63,7 @@ public class ChatMessage {
     return recipient;
   }
 
-  public ChatMessage setRecipient(String recipient) {
+  public ChatMessageDTO setRecipient(String recipient) {
     this.recipient = recipient;
     return this;
   }

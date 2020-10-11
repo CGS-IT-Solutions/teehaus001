@@ -2,6 +2,7 @@ package at.cgsit.training.firstexample.services;
 
 
 import at.cgsit.training.firstexample.chat.model.ChatMessage;
+import at.cgsit.training.firstexample.dto.ChatMessageDTO;
 
 import java.util.List;
 
@@ -11,10 +12,10 @@ public interface ChatMessageService {
 
   ChatMessage getById(Long id);
 
-  ChatMessage saveOrUpdate(ChatMessage product);
+  ChatMessage saveOrUpdate(ChatMessage chatMessage);
 
   void delete(Long id);
 
-  // ChatMessage saveOrUpdateProductForm(ProductForm productForm);
+  ChatMessage saveOrUpdateChatMessageDTO(ChatMessageDTO cmDTO);
 
 }
