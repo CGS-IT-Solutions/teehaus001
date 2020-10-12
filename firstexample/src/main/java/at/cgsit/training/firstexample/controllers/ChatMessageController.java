@@ -8,9 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.validation.Valid;
 
 @Controller
 public class ChatMessageController {
@@ -62,7 +65,7 @@ public class ChatMessageController {
     }
 
     @RequestMapping(value = "/chatmessage", method = RequestMethod.POST)
-    public String saveOrUpdateChatMessage( ChatMessageDTO chatMessageDTO, BindingResult bindingResult){
+    public String saveOrUpdateChatMessage(@Valid @ModelAttribute("chatMessageform") ChatMessageDTO chatMessageDTO, BindingResult bindingResult){
 
       if(bindingResult.hasErrors()){
         return "chatmessage/chatmessageform";

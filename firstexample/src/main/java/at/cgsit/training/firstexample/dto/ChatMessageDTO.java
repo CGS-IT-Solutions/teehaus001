@@ -1,21 +1,28 @@
 package at.cgsit.training.firstexample.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class ChatMessageDTO {
 
   private Long id;
 
+  @NotNull
   private MessageType type;
 
-  private String content;
-
+  @NotEmpty(message = "{chatMessage.sender.notempty}")
+  @Size(min=5, max=50)
   private String sender;
 
+  @NotNull
+  @Size(min=5, max=50)
   private String recipient;
+
+  @NotNull
+  @Size(min=5, max=50)
+  private String content;
+
 
   public enum MessageType {
     CHAT,
