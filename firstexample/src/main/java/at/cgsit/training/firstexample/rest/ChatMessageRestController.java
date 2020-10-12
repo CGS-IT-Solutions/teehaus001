@@ -6,12 +6,14 @@ import at.cgsit.training.firstexample.repository.ChatMessageRepository;
 import at.cgsit.training.firstexample.services.ChatMessageService;
 import at.cgsit.training.firstexample.translator.ChatMessageToChatMessageDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/rest")
+@Secured("USER")
 public class ChatMessageRestController {
 
   private ChatMessageService chatMessageService;
