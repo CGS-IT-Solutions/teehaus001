@@ -3,6 +3,7 @@ package at.cgsit.training.firstexample.rest;
 import at.cgsit.training.firstexample.chat.model.ChatMessage;
 import at.cgsit.training.firstexample.exceptions.ChatMessageNotFoundException;
 import at.cgsit.training.firstexample.properties.PropertiesSample;
+import at.cgsit.training.firstexample.properties.SingletonPropertyExample;
 import at.cgsit.training.firstexample.services.ChatMessageServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,10 +23,23 @@ public class SimpleRestController {
   @Autowired
   private PropertiesSample propertiesSample;
 
+  @Autowired
+  private SingletonPropertyExample singletonPropertyExample;
+
+
   @GetMapping("/properties/{property}")
   String getProperty(@PathVariable String property) {
     logger.info("getProperty /properties called with value {}", property);
     logger.info("Working Directory = " + System.getProperty("user.dir"));
     return propertiesSample.getMyValue();
   }
+
+  @GetMapping("/properties2/{property}")
+  String getPropertySingleton(@PathVariable String property) {
+    logger.info("getProperty /properties called with value {}", property);
+    logger.info("Working Directory = " + System.getProperty("user.dir"));
+    return this.singletonPropertyExample.getMessage();
+  }
+
+
 }
