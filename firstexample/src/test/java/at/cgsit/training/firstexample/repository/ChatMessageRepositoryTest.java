@@ -1,6 +1,7 @@
 package at.cgsit.training.firstexample.repository;
 
 import at.cgsit.training.firstexample.chat.model.ChatMessage;
+import at.cgsit.training.firstexample.chat.model.MessageType;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -41,7 +42,7 @@ public class ChatMessageRepositoryTest {
     chatMessage.setSender("john doe");
     chatMessage.setContent("test message");
     chatMessage.setRecipient("frank");
-    chatMessage.setType(ChatMessage.MessageType.CHAT);
+    chatMessage.setType(MessageType.CHAT);
 
     //when
     ChatMessage saved = chatMessageRepository.save(chatMessage);

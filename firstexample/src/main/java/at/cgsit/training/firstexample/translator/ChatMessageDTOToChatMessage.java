@@ -3,6 +3,7 @@ package at.cgsit.training.firstexample.translator;
 
 
 import at.cgsit.training.firstexample.chat.model.ChatMessage;
+import at.cgsit.training.firstexample.chat.model.MessageType;
 import at.cgsit.training.firstexample.dto.ChatMessageDTO;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -18,7 +19,7 @@ public class ChatMessageDTOToChatMessage implements Converter<ChatMessageDTO, Ch
       message.setId(Long.valueOf(cmDTO.getId()));
     }
 
-    message.setType( ChatMessage.MessageType.valueOf(cmDTO.getType().name()));
+    message.setType( MessageType.valueOf(cmDTO.getType().name()));
     message.setRecipient(cmDTO.getRecipient());
     message.setContent(cmDTO.getContent());
     message.setSender(cmDTO.getSender());

@@ -17,14 +17,6 @@ public class ChatMessage {
 
   private String recipient;
 
-  public enum MessageType {
-    CHAT,
-    PRIVATE,
-    JOIN,
-    LEAVE;
-
-  }
-
   public void setId(Long id) {
     this.id = id;
   }
