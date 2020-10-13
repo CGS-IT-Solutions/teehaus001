@@ -44,6 +44,12 @@ public class ChatMessageRestController {
     return chatMessageService.listAll();
   }
 
+  @GetMapping("/chatmessages/findBySender/{sender}")
+  public List<ChatMessage> findBySender(@PathVariable String sender) {
+    return chatMessageService.findBySender(sender);
+  }
+
+
   @PostMapping("/chatmessages")
   ChatMessage newEmployee(@RequestBody ChatMessage chatMessage) {
     return repository.save(chatMessage);
@@ -78,6 +84,7 @@ public class ChatMessageRestController {
   void deleteEmployee(@PathVariable Long id) {
     repository.deleteById(id);
   }
+
 
 
 }

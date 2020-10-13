@@ -31,6 +31,11 @@ public class DevChatMessageServiceImpl implements ChatMessageService {
     return null;
   }
 
+  @Override public List<ChatMessage> findBySender(String sender) {
+    logger.info("findBySender");
+    return Collections.EMPTY_LIST;
+  }
+
   @Override public ChatMessage saveOrUpdate(ChatMessage chatMessage) {
     logger.info("saveOrUpdate");
     return null;

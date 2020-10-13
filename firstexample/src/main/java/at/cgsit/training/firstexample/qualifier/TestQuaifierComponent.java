@@ -11,14 +11,11 @@ public class TestQuaifierComponent implements TestQualifier {
 
   Logger logger = LoggerFactory.getLogger(TestQuaifierComponent.class);
 
-
-  @Override public String echo(String echo) {
-
-    logger.info("TestQuaifierComponent:echo");
-    logger.info("TestQuaifierComponent:echo LOG 5");
+  @Override
+  public String echo(String echo) {
+    logger.info("TestQuaifierComponent:echo LOG 29");
 
     return "TestQuaifierComponent";
-
   }
 
 }

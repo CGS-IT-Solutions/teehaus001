@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -41,6 +43,11 @@ public class ChatMessageServiceImpl implements ChatMessageService {
   @Override
   public ChatMessage getById(Long id) {
     return chatMessageRepository.findById(id).orElse(null);
+  }
+
+  @Override
+  public List<ChatMessage> findBySender(String sender) {
+    return chatMessageRepository.findBySender(sender);
   }
 
   @Override

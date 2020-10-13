@@ -12,6 +12,8 @@ public interface ChatMessageService {
 
   ChatMessage getById(Long id);
 
+  List<ChatMessage> findBySender(String sender);
+
   ChatMessage saveOrUpdate(ChatMessage chatMessage);
 
   void delete(Long id);
