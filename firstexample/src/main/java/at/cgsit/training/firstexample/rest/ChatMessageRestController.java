@@ -1,6 +1,7 @@
 package at.cgsit.training.firstexample.rest;
 
 import at.cgsit.training.firstexample.chat.model.ChatMessage;
+import at.cgsit.training.firstexample.config.WebSecurityConfig;
 import at.cgsit.training.firstexample.exceptions.ChatMessageNotFoundException;
 import at.cgsit.training.firstexample.repository.ChatMessageRepository;
 import at.cgsit.training.firstexample.services.ChatMessageService;
@@ -14,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/rest")
-// @Secured("USER")
+@Secured(WebSecurityConfig.ROLE_READ)
 public class ChatMessageRestController {
 
   private ChatMessageService chatMessageService;
@@ -45,6 +46,7 @@ public class ChatMessageRestController {
   }
 
   @GetMapping("/chatmessages/findBySender/{sender}")
+  @Secured(WebSecurityConfig.ROLE_READ)
   public List<ChatMessage> findBySender(@PathVariable String sender) {
     return chatMessageService.findBySender(sender);
   }

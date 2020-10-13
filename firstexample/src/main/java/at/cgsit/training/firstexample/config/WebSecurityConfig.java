@@ -61,9 +61,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     http.csrf().disable();
   }
 
-    public final String ROLE_READ =  "READ";
-    public final String ROLE_USER =  "USER";
-    public final String ROLE_POWER_USER =  "POWER_USER";
+    public static final String ROLE_READ =  "READ";
+    public static final String ROLE_USER =  "USER";
+    public static final String ROLE_POWER_USER =  "POWER_USER";
 
 
     @Bean
