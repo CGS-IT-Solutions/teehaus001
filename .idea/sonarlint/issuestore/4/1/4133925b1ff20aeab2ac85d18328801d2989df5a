@@ -1,9 +1,0 @@
-
-=squid:S37514"Make this method "public".(ÁÜ« ùÿÿÿÿ8ØúêÌÑ.
-=squid:S3751;"Make this method "public".(ö§Ïüÿÿÿÿ8şÜîÌÑ.
-8squid:S3751-"Make this method "public".(¼šÇÕ8î§ëÌÑ.
-Ksquid:S1068"-Remove this unused "cmToCMDTO" private field.(Ù¼õ8¡ÿÉÌÑ.
-vsquid:S1450"XRemove the "cmToCMDTO" field and declare it as a local variable in the relevant methods.(Ù¼õ8¡ÿÉÌÑ.
-csquid:S4684;"@Replace this persistent entity with a simple POJO or DTO object.(ö§Ïüÿÿÿÿ8¹÷õÌÑ.
-^squid:S4684-"@Replace this persistent entity with a simple POJO or DTO object.(¼šÇÕ8šİëÌÑ.
-=squid:S3751K"Make this method "public".(É‘¼†úÿÿÿÿ8şÜîÌÑ.
