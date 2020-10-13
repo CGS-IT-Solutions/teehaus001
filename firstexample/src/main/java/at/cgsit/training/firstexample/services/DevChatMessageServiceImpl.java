@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@Service
-@Transactional
+// @Service
+// @Transactional
 public class DevChatMessageServiceImpl implements ChatMessageService {
 
   Logger logger = LoggerFactory.getLogger(DevChatMessageServiceImpl.class);

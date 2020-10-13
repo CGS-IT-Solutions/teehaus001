@@ -2,21 +2,25 @@ package at.cgsit.training.firstexample.repository;
 
 import at.cgsit.training.firstexample.chat.model.ChatMessage;
 import at.cgsit.training.firstexample.chat.model.MessageType;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.runner.RunWith;
+import at.cgsit.training.firstexample.config.StandardChatMessageServiceConfig;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import org.springframework.test.jdbc.JdbcTestUtils;
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
+// @DataJpaTest
 @SpringBootTest
+// @ExtendWith()
 public class ChatMessageRepositoryTest {
 
   @Autowired
@@ -25,12 +29,7 @@ public class ChatMessageRepositoryTest {
   @Autowired
   private JdbcTemplate jdbcTemplate;
 
-  @Before
-  public void setUp() throws Exception {
-
-  }
-
-  @After
+  @BeforeEach
   public void tearDown() {
     JdbcTestUtils.deleteFromTables(jdbcTemplate, "chat_message");
   }
@@ -47,10 +46,10 @@ public class ChatMessageRepositoryTest {
     //when
     ChatMessage saved = chatMessageRepository.save(chatMessage);
 
-    Assert.assertNotNull(chatMessage.getId());
+    assertThat(chatMessage.getId()).isNotNull();
 
     ChatMessage newChatMessage1 = chatMessageRepository.findById(chatMessage.getId()).orElse(null);
-    Assert.assertEquals((Long) 1L, newChatMessage1.getId());
+    assertThat( newChatMessage1.getId() ).isGreaterThanOrEqualTo(1L);
   }
 
 
