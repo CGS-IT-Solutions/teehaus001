@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/rest")
-@Secured("USER")
+// @Secured("USER")
 public class ChatMessageRestController {
 
   private ChatMessageService chatMessageService;

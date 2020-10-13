@@ -8,8 +8,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * There's a dedicated AopAutoConfiguration that enables Spring's AOP
  * support if the Aspect or Advice is on the classpath.
  */
-// @Configuration
-// @EnableAspectJAutoProxy
+@Configuration
+@EnableAspectJAutoProxy
 public class AopConfiguration {
 
 }
