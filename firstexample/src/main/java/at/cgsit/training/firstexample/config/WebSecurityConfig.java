@@ -39,15 +39,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     log.info("Disabling CSRF, enabling basic authentication...");
     http
         .authorizeRequests()
-        .antMatchers("/login.html").permitAll()
+        //.antMatchers("/login.html").permitAll()
         .antMatchers("/**").authenticated() // These urls are allowed by any authenticated user
         .and()
         // .httpBasic();
         .formLogin()
-        .successHandler(myLoginSuccessHandler)
-        .defaultSuccessUrl( "/chatmessage/list" )
+        //.successHandler(myLoginSuccessHandler)
+        //.defaultSuccessUrl( "/chatmessage/list" )
         .loginPage("/login.html")
-        .loginProcessingUrl("/chatmessage/list")
+        //.loginProcessingUrl("/chatmessage/list")
         .permitAll()
         .failureUrl("/login-error.html")
         .permitAll()
@@ -71,7 +71,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
       // Get the user credentials from the console (or any other source):
 
       String username = "admin";
-      String password = "root";
+      String password = "admin";
 
       // Set the inMemoryAuthentication object with the given credentials:
       InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
