@@ -1,19 +1,18 @@
 package at.cgsit.training.firstexample.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.NoRepositoryBean;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 import java.util.List;
 
-@NoRepositoryBean
+@Transactional
 public abstract class AbstractJpaDao< T extends Serializable> implements IAbstractJpaDao<T> {
 
     private Class< T > clazz;
 
-    @PersistenceContext
+    @Autowired
     EntityManager entityManager;
 
   public final void setClazz( Class< T > clazzToSet ){
