@@ -15,32 +15,31 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @ComponentScan("at.cgsit.training.firstexample.dao")
-@AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class ChatMessageDaoTest {
 
-  @Autowired
+    @Autowired
+    private IAbstractJpaDao<ChatMessage> chatMessageDao;
 
-  private IAbstractJpaDao<ChatMessage> chatMessageDao;
+    @Test
+    public void testPersistence() {
+        //given
+        ChatMessage chatMessage = new ChatMessage();
+        chatMessage.setSender("john doe");
+        chatMessage.setContent("test ChatMessageDaoTest");
+        chatMessage.setRecipient("frank");
+        chatMessage.setType(MessageType.CHAT);
 
-  @Test
-  public void testPersistence() {
-    //given
-    ChatMessage chatMessage = new ChatMessage();
-    chatMessage.setSender("john doe");
-    chatMessage.setContent("test ChatMessageDaoTest");
-    chatMessage.setRecipient("frank");
-    chatMessage.setType(MessageType.CHAT);
+        //when
+        //ChatMessage saved =
 
-    //when
-    //ChatMessage saved =
+        chatMessageDao.create(chatMessage);
 
-    chatMessageDao.create(chatMessage);
+        // assertThat(chatMessage.getId()).isNotNull();
 
-    // assertThat(chatMessage.getId()).isNotNull();
+        ChatMessage newChatMessage1 = chatMessageDao.findOne(chatMessage.getId());
 
-    ChatMessage newChatMessage1 = chatMessageDao.findOne(chatMessage.getId());
-
-    assertThat( newChatMessage1.getId() ).isGreaterThanOrEqualTo(1L);
-  }
+        assertThat(newChatMessage1.getId()).isGreaterThanOrEqualTo(1L);
+    }
 
 }
