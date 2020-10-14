@@ -21,7 +21,7 @@ class ChatMessageDaoTest {
     //given
     ChatMessage chatMessage = new ChatMessage();
     chatMessage.setSender("john doe");
-    chatMessage.setContent("test message");
+    chatMessage.setContent("test ChatMessageDaoTest");
     chatMessage.setRecipient("frank");
     chatMessage.setType(MessageType.CHAT);
 
