@@ -2,19 +2,22 @@ package at.cgsit.training.firstexample.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.NoRepositoryBean;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.List;
 
 @NoRepositoryBean
-public abstract class AbstractJpaDao< T extends Serializable> implements IAbstractJpaDao<T> {
+@Transactional
+public abstract class AbstractJpaDao< T extends Serializable> extends HibernateDaoSupport implements IAbstractJpaDao<T> {
 
     private Class< T > clazz;
 
-    @PersistenceContext
-    EntityManager entityManager;
+  @Autowired
+  EntityManager entityManager;
 
   public final void setClazz( Class< T > clazzToSet ){
     this.clazz = clazzToSet;
@@ -28,6 +31,7 @@ public abstract class AbstractJpaDao< T extends Serializable> implements IAbstra
         .getResultList();
   }
 
+  @Transactional
   @Override public void create(T entity){
     entityManager.persist( entity );
   }
