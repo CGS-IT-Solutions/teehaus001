@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-public class ChatMessageDao extends AbstractJpaDao<ChatMessage> implements IAbstractJpaDao<ChatMessage> {
+public class ChatMessageDao extends AbstractJpaDao<ChatMessage> {
 
   Logger logger = LoggerFactory.getLogger(ChatMessageDao.class);
 

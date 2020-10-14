@@ -2,27 +2,25 @@ package at.cgsit.training.firstexample.dao;
 
 import at.cgsit.training.firstexample.chat.model.ChatMessage;
 import at.cgsit.training.firstexample.chat.model.MessageType;
-import at.cgsit.training.firstexample.repository.ChatMessageRepository;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+@ExtendWith(SpringExtension.class)
+@DataJpaTest
+@ComponentScan("at.cgsit.training.firstexample.dao")
+@AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
 class ChatMessageDaoTest {
 
   @Autowired
+
   private IAbstractJpaDao<ChatMessage> chatMessageDao;
-
-  @Test
-  public void testCustomConnection() {
-
-    ChatMessage oneSpezial = chatMessageDao.findOneSpezial(1);
-
-    assertThat(oneSpezial).isNotNull();
-  }
 
   @Test
   public void testPersistence() {
