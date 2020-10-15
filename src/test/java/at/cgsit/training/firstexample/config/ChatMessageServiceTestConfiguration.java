@@ -4,18 +4,13 @@ import at.cgsit.training.firstexample.services.ChatMessageService;
 import at.cgsit.training.firstexample.services.DevChatMessageServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
 
+@TestConfiguration
+public class ChatMessageServiceTestConfiguration {
+    Logger logger = LoggerFactory.getLogger(ChatMessageServiceTestConfiguration.class);
 
-@Configuration
-@Profile("dev")
-public class DevChatMessageServiceConfig {
-    Logger logger = LoggerFactory.getLogger(DevChatMessageServiceConfig.class);
-
-    @Primary
     @Bean
     public ChatMessageService devChatMessageService() {
         logger.info("chatMessageService bean constructor callback");
