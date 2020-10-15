@@ -6,12 +6,13 @@ import at.cgsit.training.firstexample.services.ChatMessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class DevChatMessageServiceImpl implements ChatMessageService {
+public class DevChatMessageServiceStubImpl implements ChatMessageService {
 
-  Logger logger = LoggerFactory.getLogger(DevChatMessageServiceImpl.class);
+  Logger logger = LoggerFactory.getLogger(DevChatMessageServiceStubImpl.class);
 
   @Override
   public List<ChatMessage> listAll() {
@@ -26,7 +27,15 @@ public class DevChatMessageServiceImpl implements ChatMessageService {
 
   @Override public List<ChatMessage> findBySender(String sender) {
     logger.info("findBySender");
-    return Collections.EMPTY_LIST;
+    ChatMessage msg = new ChatMessage();
+    msg.setSender("dummy");
+    msg.setRecipient("dummy");
+    msg.setContent("dummy");
+
+    List<ChatMessage> list = new ArrayList<>();
+    list.add(msg);
+
+    return list;
   }
 
   @Override public ChatMessage saveOrUpdate(ChatMessage chatMessage) {

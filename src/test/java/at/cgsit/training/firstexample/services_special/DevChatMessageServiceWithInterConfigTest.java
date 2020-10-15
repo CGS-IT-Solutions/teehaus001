@@ -2,7 +2,7 @@ package at.cgsit.training.firstexample.services_special;
 
 import at.cgsit.training.firstexample.chat.model.ChatMessage;
 import at.cgsit.training.firstexample.services.ChatMessageService;
-import at.cgsit.training.firstexample.services_stubs.DevChatMessageServiceImpl;
+import at.cgsit.training.firstexample.services_stubs.DevChatMessageServiceStubImpl;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +32,7 @@ public class DevChatMessageServiceWithInterConfigTest {
         @Bean
         public ChatMessageService devChatMessageService() {
             logger.info("chatMessageService bean constructor callback");
-            return new DevChatMessageServiceImpl();
+            return new DevChatMessageServiceStubImpl();
         }
 
     }

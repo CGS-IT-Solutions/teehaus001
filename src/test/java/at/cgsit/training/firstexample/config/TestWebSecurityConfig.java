@@ -19,7 +19,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @TestConfiguration
 // @EnableGlobalMethodSecurity(securedEnabled = false)
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class TestWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final Logger log = LogManager.getLogger();
 
@@ -29,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   @Autowired
   private MyLoginSuccessHandler myLoginSuccessHandler;
 
-  public WebSecurityConfig() {
+  public TestWebSecurityConfig() {
   }
 
 
