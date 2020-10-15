@@ -1,7 +1,8 @@
-package at.cgsit.training.firstexample.services;
+package at.cgsit.training.firstexample.services_stubs;
 
 import at.cgsit.training.firstexample.chat.model.ChatMessage;
 import at.cgsit.training.firstexample.dto.ChatMessageDTO;
+import at.cgsit.training.firstexample.services.ChatMessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

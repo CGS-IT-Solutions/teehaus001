@@ -7,6 +7,7 @@ import at.cgsit.training.firstexample.translator.ChatMessageDTOToChatMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +26,7 @@ public class ChatMessageServiceImpl implements ChatMessageService {
   private ChatMessageRepository chatMessageRepository;
 
   private ChatMessageDTOToChatMessage chatMessageDTOToChatMessage;
+
 
   @Autowired
   public ChatMessageServiceImpl(ChatMessageRepository chatMessageRepository, ChatMessageDTOToChatMessage chatMessageDTOToChatMessage) {

@@ -47,4 +47,5 @@ public abstract class AbstractJpaDao< T extends Serializable> implements IAbstra
   public ChatMessage findOneSpezial(long id){
     throw new RuntimeException("not implemented");
   }
+
 }

@@ -1,7 +1,7 @@
 package at.cgsit.training.firstexample.config;
 
 import at.cgsit.training.firstexample.services.ChatMessageService;
-import at.cgsit.training.firstexample.services.DevChatMessageServiceImpl;
+import at.cgsit.training.firstexample.services_stubs.DevChatMessageServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.TestConfiguration;

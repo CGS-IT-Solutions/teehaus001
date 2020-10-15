@@ -1,6 +1,8 @@
-package at.cgsit.training.firstexample.services;
+package at.cgsit.training.firstexample.services_special;
 
 import at.cgsit.training.firstexample.chat.model.ChatMessage;
+import at.cgsit.training.firstexample.services.ChatMessageService;
+import at.cgsit.training.firstexample.services_stubs.DevChatMessageServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

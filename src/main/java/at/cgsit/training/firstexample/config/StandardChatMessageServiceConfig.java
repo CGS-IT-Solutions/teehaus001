@@ -25,6 +25,7 @@ public class StandardChatMessageServiceConfig {
   public ChatMessageService chatMessageService() {
     logger.info("chatMessageService bean constructor callback");
     return new ChatMessageServiceImpl(chatMessageRepository, chatMessageDTOToChatMessage);
+
   }
 
 }
