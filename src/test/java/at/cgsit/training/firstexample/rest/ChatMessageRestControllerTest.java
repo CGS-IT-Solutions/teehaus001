@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @Import(TestChatMessageServiceConfiguration.class)
-@WithMockUser(username = "admin", password = "admin", roles = "READ")
+@WithMockUser(roles = "READ")
 class ChatMessageRestControllerTest {
 
   @Autowired
