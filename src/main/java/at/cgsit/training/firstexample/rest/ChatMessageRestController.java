@@ -1,16 +1,19 @@
 package at.cgsit.training.firstexample.rest;
 
 import at.cgsit.training.firstexample.chat.model.ChatMessage;
-import at.cgsit.training.firstexample.config.WebSecurityConfig;
 import at.cgsit.training.firstexample.exceptions.ChatMessageNotFoundException;
 import at.cgsit.training.firstexample.repository.ChatMessageRepository;
 import at.cgsit.training.firstexample.services.ChatMessageService;
 import at.cgsit.training.firstexample.translator.ChatMessageToChatMessageDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -87,6 +90,13 @@ public class ChatMessageRestController {
     repository.deleteById(id);
   }
 
-
+  @GetMapping(value = "/restlogout")
+  public void logout(HttpServletRequest request, HttpServletResponse response) {
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    if (auth != null) {
+      new SecurityContextLogoutHandler().logout(request, response, auth);
+    }
+    SecurityContextHolder.getContext().setAuthentication(null);
+  }
 
 }
