@@ -11,8 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
-@ComponentScan("at.cgsit.training.firstexample.dao") //
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // nimmt echte konfigurierte db
+@ComponentScan("at.cgsit.training.firstexample.dao")
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class ChatMessageDaoTest {
 
     @Autowired

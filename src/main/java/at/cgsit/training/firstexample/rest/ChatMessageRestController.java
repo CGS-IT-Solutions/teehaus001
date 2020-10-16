@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/rest")
-@Secured(WebSecurityConfig.ROLE_READ)
+@Secured("ROLE_READ")
 public class ChatMessageRestController {
 
   private ChatMessageService chatMessageService;
@@ -46,7 +46,7 @@ public class ChatMessageRestController {
   }
 
   @GetMapping("/chatmessages/findBySender/{sender}")
-  @Secured(WebSecurityConfig.ROLE_READ)
+  @Secured("ROLE_READ")
   public List<ChatMessage> findBySender(@PathVariable String sender) {
     return chatMessageService.findBySender(sender);
   }
